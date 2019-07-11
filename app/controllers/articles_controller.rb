@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
 
+  def index
+    @articles = Article.all    #get all articles from dB:
+  end
+
   # go to new.html.erb
   def new
     @article = Article.new
