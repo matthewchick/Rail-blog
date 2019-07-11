@@ -5,6 +5,20 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      flash[:notice] = "Article was successfully updated"
+      redirect_to article_path(@article)   # go to 'show' action
+    else
+      render 'edit'
+    end
+  end
+
   def create
     # send plain text - with no markup at all - back to the browser by using the :plain option to render:
     # render plain: params[:article].inspect
