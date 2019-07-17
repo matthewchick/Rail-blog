@@ -35,6 +35,7 @@ class ArticlesController < ApplicationController
     # redirect_to article_path(@article)
     if @article.save
       flash[:success] = "Article was successfully created"
+      # flash[:notice] = "Article was successfully created"
       redirect_to article_path(@article)   # go to 'show' action
     else
       # if have an error
