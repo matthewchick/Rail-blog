@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :articles   # 1: many relationship
+  before_save { self.email = email.downcase }  # before save to DB, change the email to lowercase
   #https://guides.rubyonrails.org/
   validates :username, presence: true,
         uniqueness: { case_sensitive: false },

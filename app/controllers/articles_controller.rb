@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    # debugger
     # send plain text - with no markup at all - back to the browser by using the :plain option to render:
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
